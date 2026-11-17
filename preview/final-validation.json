@@ -1,0 +1,38 @@
+{
+  "errors": [],
+  "externalRequests": [],
+  "iframeMessaging": true,
+  "modelExport": {
+    "bytes": 46476968,
+    "meshes": 132,
+    "images": 26,
+    "nodes": 377
+  },
+  "responsive": [
+    {
+      "w": 1200,
+      "h": 800,
+      "canvasWidth": 738
+    },
+    {
+      "w": 900,
+      "h": 700,
+      "canvasWidth": 900
+    },
+    {
+      "w": 768,
+      "h": 700,
+      "canvasWidth": 768
+    },
+    {
+      "w": 390,
+      "h": 844,
+      "canvasWidth": 390
+    },
+    {
+      "w": 390,
+      "h": 640,
+      "canvasWidth": 390
+    }
+  ]
+}

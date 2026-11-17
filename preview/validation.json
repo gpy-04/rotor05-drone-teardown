@@ -1,0 +1,27 @@
+{
+  "audit": {
+    "meshes": 135,
+    "triangles": 485878,
+    "invalid": 0,
+    "materials": 47,
+    "motors": 4,
+    "coils": 48,
+    "magnetSegments": 56,
+    "blades": 12,
+    "boardMount": 30.5,
+    "propDiameter": 127,
+    "rotorClearance": 33,
+    "motorPhaseWires": 12,
+    "pieces": 27,
+    "sourceMeshes": 1214,
+    "batchedParts": 1079,
+    "drawCalls": 247,
+    "renderedTriangles": 971710,
+    "viewport": [
+      1084,
+      798
+    ],
+    "gpu": "WebKit WebGL"
+  },
+  "errors": []
+}

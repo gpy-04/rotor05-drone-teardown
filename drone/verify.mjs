@@ -1,0 +1,23 @@
+import {createRequire} from 'node:module';
+import {pathToFileURL} from 'node:url';
+import fs from 'node:fs';
+import path from 'node:path';
+const require=createRequire('C:/Users/shangguan/.codex/skills/teardown/package.json');
+const {chromium}=require('playwright');
+const root=path.resolve(import.meta.dirname,'..'),out=path.join(root,'teardown-out/drone');fs.mkdirSync(out,{recursive:true});
+const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true,args:['--use-angle=d3d11','--enable-webgl','--ignore-gpu-blocklist','--allow-file-access-from-files']});
+const page=await browser.newPage({viewport:{width:1600,height:1000},deviceScaleFactor:1});
+const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
+await page.goto(pathToFileURL(path.join(root,'无人机结构实验室.html')).href);await page.waitForFunction(()=>window.SIM?.ready,{timeout:60000});await page.waitForTimeout(1000);
+const audit=await page.evaluate(()=>window.rotor05.audit());console.log('AUDIT',JSON.stringify(audit));
+console.log('BLADES',JSON.stringify(await page.evaluate(()=>window.rotor05.geometryAudit())));
+await page.screenshot({path:path.join(out,'01-assembled.png')});
+await page.evaluate(()=>window.rotor05.setState({selected:'overview',explosion:1}));await page.screenshot({path:path.join(out,'02-exploded.png')});
+for(const [id,name,cut]of [['motor','03-motor',true],['fc','04-flight-controller',false],['prop','05-propeller',false],['esc','06-esc',false],['wires','07-wiring',true],['camera','08-camera',false]]){await page.evaluate(([id,cut])=>window.rotor05.setState({selected:id,cut,explosion:0}),[id,cut]);await page.screenshot({path:path.join(out,name+'.png')})}
+await page.locator('#tour').click();await page.waitForTimeout(100);console.log('TOUR',await page.evaluate(()=>window.rotor05.getState().guided));await page.locator('[data-part="fc"]').click();console.log('TAKEOVER',await page.evaluate(()=>window.rotor05.getState().guided));
+await page.locator('#embed').click();console.log('EMBED',await page.locator('#embed-modal').isVisible());await page.screenshot({path:path.join(out,'09-embed-dialog.png')});await page.locator('#close-modal').click();
+await page.evaluate(()=>window.rotor05.setState({selected:'overview',explosion:0,cut:false,isolate:false}));await page.setViewportSize({width:390,height:844});await page.waitForTimeout(200);await page.evaluate(()=>window.rotor05.setState({selected:'overview',explosion:0}));await page.screenshot({path:path.join(out,'10-mobile.png')});
+console.log('MOBILE',await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,viewport:window.rotor05.audit().viewport})));
+await page.setViewportSize({width:1200,height:760});await page.evaluate(()=>window.rotor05.setState({selected:'overview',explosion:0}));
+await page.screenshot({path:path.join(out,'11-compact.png')});
+console.log('ERRORS',JSON.stringify(errors));fs.writeFileSync(path.join(out,'validation.json'),JSON.stringify({audit,errors},null,2));await browser.close();

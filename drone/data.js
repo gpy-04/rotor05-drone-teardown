@@ -1,0 +1,14 @@
+export const PARTS=[
+ {id:'overview',n:'00',name:'整机总览',en:'THE COMPLETE MACHINE',title:'把飞行，拆开来看。',text:'一架五寸四旋翼，藏着四套动力系统、一叠电子板与精密的信号网络。拖动模型，从任意角度读懂它。',facts:[['轴距','226 mm'],['桨叶直径','127 mm'],['电池系统','6S · 22.2 V']],note:'按真实部件尺度构建的结构展示模型；非制造图纸。'},
+ {id:'frame',n:'01',name:'碳纤维机架',en:'CARBON FIBRE FRAME',title:'轻盈，也足够坚韧。',text:'上下碳板与四根独立机臂形成承力骨架。板材保留真实厚度、螺钉孔和通风开口，金属立柱撑起电子舱。',facts:[['机臂厚度','5 mm'],['下板厚度','4 mm'],['电子舱高度','35 mm']],note:'斜向碳布纹理、CNC 切边、M3 紧固件与机臂线夹。'},
+ {id:'motor',n:'02',name:'无刷电机',en:'OUTRUNNER · 2207',title:'铜线与磁场的协奏。',text:'12 个定子齿槽缠绕铜线，转子内壁排列 14 块磁钢。外转子钟罩与螺旋桨一同旋转，定子和三相线保持固定。',facts:[['定子尺寸','Ø22 × 7 mm'],['槽 / 磁极','12 N / 14 P'],['标称 KV','1750 rpm/V']],note:'点「内部剖视」可抬起钟罩，近看线圈、轴承与磁钢。'},
+ {id:'fc',n:'03',name:'飞控主板',en:'FLIGHT CONTROLLER',title:'每次修正，从这里开始。',text:'中央微控制器读取惯性传感器，再向电调发送控制指令。独立建模的芯片引脚、镀金焊盘、USB-C 与 JST 插座都可近看。',facts:[['板孔间距','30.5 mm'],['控制芯片','STM32F405'],['电路板厚度','1.6 mm']],note:'参考 F405 类飞控布局；电路走线为视觉示意，不代表可生产的 PCB。'},
+ {id:'esc',n:'04',name:'四合一电调',en:'4-IN-1 MOTOR CONTROLLER',title:'把电能交给四个转子。',text:'四组功率级控制四个电机，每组由六颗 MOSFET 构成三相桥。边缘焊盘接出十二根相线，低 ESR 电容抑制电源纹波。',facts:[['结构','4 × 三相桥'],['功率器件','24 × MOSFET'],['设计级别','6S · 55 A']],note:'功率参数为同级产品参考值；本页不做真实飞行性能预测。'},
+ {id:'wires',n:'05',name:'线路与连接',en:'POWER & SIGNAL',title:'每根线，都有去处。',text:'粗红黑硅胶线输送电池电流；十二根相线沿机臂进入定子；细排线连接飞控和电调。镜头与接收机各有独立线束。',facts:[['电源接头','XT60'],['电机相线','4 × 3 根'],['飞控排线','8 芯']],note:'线路按装配状态布设；爆炸拆解时保持原位置，便于观察原始路径。'},
+ {id:'prop',n:'06',name:'拟真螺旋桨',en:'TWISTED AIRFOIL',title:'一片翼，沿半径扭转。',text:'桨叶从厚实的根部过渡到纤薄的后掠桨尖。翼型、弦长与安装角沿半径连续变化；相邻电机采用相反旋向。',facts:[['直径 / 桨距','5.0″ / 4.3″'],['每副叶片','3 片'],['紧固轴径','M5']],note:'上方滑块控制转速。为看清结构，高转速采用视觉慢放，读数显示原转速。'},
+ {id:'battery',n:'07',name:'电池与固定',en:'6S LITHIUM POLYMER',title:'能量，被妥善安放。',text:'六片电芯叠入热缩外壳，两条魔术贴束带将其压在顶板上。独立的电源引线通过 XT60 连接电调。',facts:[['串联电芯','6S'],['标称电压','22.2 V'],['标称容量','1300 mAh']],note:'电芯分层、热缩端盖、标签、固定束带与锁扣均有独立结构。'},
+ {id:'camera',n:'08',name:'镜头与接收机',en:'VISION & RADIO',title:'看见前方，接收指令。',text:'前置 FPV 镜头具有多层镜筒、镀膜玻璃和可调支架；后部接收机通过两根天线与遥控器通信。',facts:[['镜头外壳','19 mm'],['镜组结构','同轴镜筒'],['后部天线','双支路']],note:'可从正面查看镜头，也可自由拖动观察尾部接收机。'}
+];
+export const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+export const smooth=x=>{x=clamp(x);return x*x*(3-2*x)};
+export function tour(t){t%=32;if(t<6)return{selected:'overview',explosion:0,cut:false,throttle:0,label:'01 / 认识整机'};if(t<12)return{selected:'overview',explosion:smooth((t-6)/2),cut:false,throttle:0,label:'02 / 分层拆解'};if(t<18)return{selected:'motor',explosion:0,cut:true,throttle:0,label:'03 / 电机内部'};if(t<24)return{selected:'fc',explosion:.7,cut:false,throttle:0,label:'04 / 飞控主板'};if(t<28)return{selected:'prop',explosion:.2,cut:false,throttle:.2,label:'05 / 扭转翼型'};return{selected:'overview',explosion:1-smooth((t-28)/3),cut:false,throttle:.18,label:'06 / 回到整机'}}
