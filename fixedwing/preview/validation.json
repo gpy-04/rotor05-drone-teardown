@@ -1,0 +1,550 @@
+{
+  "audit": {
+    "sourceMeshes": 688,
+    "meshes": 129,
+    "triangles": 308166,
+    "invalid": 0,
+    "topology": [
+      {
+        "name": "lower_fuselage_shell_2_4mm_shell",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 4802,
+          "faces": 4800,
+          "edges": 9600,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.0010535148094210937
+      },
+      {
+        "name": "upper_nose_shell_2_4mm_shell",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 980,
+          "faces": 978,
+          "edges": 1956,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.00014476753364048964
+      },
+      {
+        "name": "removable_equipment_hatch_2_4mm_shell",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 2352,
+          "faces": 2350,
+          "edges": 4700,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.0006077312220546018
+      },
+      {
+        "name": "upper_rear_fairing_2_4mm_shell",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 1764,
+          "faces": 1762,
+          "edges": 3524,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.0002963571796587309
+      },
+      {
+        "name": "cambered_tapered_wing_skin",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 2250,
+          "faces": 2248,
+          "edges": 4496,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.000503445160075791
+      },
+      {
+        "name": "cambered_tapered_wing_skin",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 2250,
+          "faces": 2248,
+          "edges": 4496,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.0004985825492677034
+      },
+      {
+        "name": "flap_airfoil_closed",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 990,
+          "faces": 926,
+          "edges": 1914,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.0006681641288352868
+      },
+      {
+        "name": "aileron_airfoil_closed",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 990,
+          "faces": 926,
+          "edges": 1914,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.0005622944809238742
+      },
+      {
+        "name": "rounded_tapered_tip",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 130,
+          "faces": 67,
+          "edges": 195,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.0000629951110195812
+      },
+      {
+        "name": "cambered_tapered_wing_skin",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 2250,
+          "faces": 2248,
+          "edges": 4496,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.0005025989276551149
+      },
+      {
+        "name": "cambered_tapered_wing_skin",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 2250,
+          "faces": 2248,
+          "edges": 4496,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.0004977375166688732
+      },
+      {
+        "name": "flap_airfoil_closed",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 990,
+          "faces": 926,
+          "edges": 1914,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.0006681050594943131
+      },
+      {
+        "name": "aileron_airfoil_closed",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 990,
+          "faces": 926,
+          "edges": 1914,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.0005622304331734278
+      },
+      {
+        "name": "rounded_tapered_tip",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 130,
+          "faces": 67,
+          "edges": 195,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.00006299306676640502
+      },
+      {
+        "name": "horizontal_stabilizer_airfoil",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 833,
+          "faces": 786,
+          "edges": 1617,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.0028924453232167
+      },
+      {
+        "name": "elevator_closed_airfoil",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 850,
+          "faces": 802,
+          "edges": 1650,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.0004743487875925145
+      },
+      {
+        "name": "tapered_vertical_fin",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 784,
+          "faces": 737,
+          "edges": 1519,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.0006201508944242394
+      },
+      {
+        "name": "rudder_airfoil",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 800,
+          "faces": 752,
+          "edges": 1550,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.00010824690716633576
+      },
+      {
+        "name": "tapered_vertical_fin",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 784,
+          "faces": 737,
+          "edges": 1519,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.0006201508944242394
+      },
+      {
+        "name": "rudder_airfoil",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 800,
+          "faces": 752,
+          "edges": 1550,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.00010824690716633576
+      },
+      {
+        "name": "twisted_airfoil_propeller_-1",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 1421,
+          "faces": 1374,
+          "edges": 2793,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.000012610977308201022
+      },
+      {
+        "name": "twisted_airfoil_propeller_1",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 1421,
+          "faces": 1374,
+          "edges": 2793,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.000012610977308201022
+      },
+      {
+        "name": "woven_battery_strap",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 16,
+          "faces": 14,
+          "edges": 28,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.000005864377419287684
+      },
+      {
+        "name": "woven_battery_strap",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 16,
+          "faces": 14,
+          "edges": 28,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.000005864377419287684
+      },
+      {
+        "name": "continuous_carbon_main_spring",
+        "ok": true,
+        "issues": [],
+        "counts": {
+          "vertices": 132,
+          "faces": 130,
+          "edges": 260,
+          "components": 1,
+          "looseVertices": 0,
+          "duplicateVertexPairs": 0,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "inconsistentWindingEdges": 0,
+          "degenerateFaces": 0
+        },
+        "volume": 0.00015119999999999947
+      }
+    ],
+    "propBoomClearance": 0.19799999999999995,
+    "skinThickness": 0.0024,
+    "units": "metres",
+    "brandTextures": 0,
+    "batches": 124,
+    "drawCalls": 259,
+    "renderedTriangles": 616334,
+    "viewport": [
+      1084,
+      798
+    ],
+    "gpu": "WebKit WebGL"
+  },
+  "errors": [],
+  "external": [],
+  "controls": {
+    "selected": "overview",
+    "explosion": 0,
+    "cut": false,
+    "isolate": false,
+    "labels": false,
+    "throttle": 0,
+    "phase": 0,
+    "roll": 0,
+    "pitch": 0,
+    "yaw": 0,
+    "flap": 0,
+    "rpm": 0,
+    "guided": true,
+    "chapter": "01 · 整机与构型"
+  },
+  "layout": [
+    {
+      "width": 390,
+      "scroll": 390,
+      "viewport": [
+        390,
+        616
+      ]
+    },
+    {
+      "width": 768,
+      "scroll": 768,
+      "viewport": [
+        768,
+        792
+      ]
+    },
+    {
+      "width": 1200,
+      "scroll": 1200,
+      "viewport": [
+        738,
+        601
+      ]
+    }
+  ],
+  "embed": "<iframe\n  src=\"./固定翼无人机结构实验室.html?embed=1\"\n  title=\"固定翼无人机结构实验室 · 无商标模型\"\n  style=\"width:100%;height:760px;border:0;border-radius:16px;\"\n  allow=\"fullscreen\"\n  loading=\"lazy\"\n></iframe>",
+  "exportBytes": 39614620,
+  "brandScan": {
+    "matches": []
+  },
+  "captureViews": [
+    "01-assembled",
+    "02-top",
+    "02-front",
+    "02-side",
+    "03-exploded",
+    "04-airframe",
+    "04-wing",
+    "04-motor",
+    "04-avionics",
+    "04-battery",
+    "04-camera",
+    "04-gear",
+    "04-tail",
+    "05-control-extremes",
+    "06-control-panel",
+    "07-normals",
+    "07-wireframe",
+    "08-size-390",
+    "08-size-768",
+    "08-size-1200",
+    "09-tour-0",
+    "09-tour-5.4",
+    "09-tour-10.4",
+    "09-tour-16.4",
+    "09-tour-22.4",
+    "09-tour-28.4",
+    "09-tour-34.4"
+  ]
+}

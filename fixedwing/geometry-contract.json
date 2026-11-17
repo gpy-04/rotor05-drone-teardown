@@ -1,0 +1,9 @@
+{
+ "units":"metres","axes":"+X starboard, +Y up, nose -Z","seed":2412,
+ "dimensions":{"span":2.4,"length":2.13,"skinThickness":0.0024,"boomCenters":[-0.41,0.41],"propRadius":0.2,"propZ":0.48},
+ "relationships":["Wing spar passes through rib apertures","Wing meets fuselage at paired saddles","Booms inserted through wing clamps and terminate in tail sockets","Control surfaces pivot on hinge axes","Landing gear and camera attached to fuselage bulkheads","Motor flange bolts onto rear firewall","Propeller swept disc is clear of tail booms","Tire bottoms meet y=0"],
+ "intentionalIntersections":["bolt shafts in mounting apertures","servo pushrods seated in horn sockets","wire endpoints within connector housings","spar contained by rib holes and wing skins"],
+ "views":["assembled 3/4","top","side","front","exploded","wing cutaway","motor cutaway","avionics macro","tail deflection","mobile"],
+ "performance":{"targetDrawCalls":150,"pixelRatioCap":1.5,"lowTier":"DPR 1 and 1024 shadow map"},
+ "referencePolicy":"Twin-boom pusher architecture grounded in reference photograph; dimensions and equipment are an authored unbranded educational design, not a manufacturing drawing."
+}

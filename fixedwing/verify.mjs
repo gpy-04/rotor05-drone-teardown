@@ -1,0 +1,26 @@
+import {createRequire} from 'node:module';
+import fs from 'node:fs';
+import path from 'node:path';
+import {pathToFileURL} from 'node:url';
+const require=createRequire('C:/Users/shangguan/.codex/skills/teardown/package.json'),{chromium}=require('playwright');
+const root=path.resolve(import.meta.dirname,'..'),out=path.join(import.meta.dirname,'preview');fs.mkdirSync(out,{recursive:true});
+const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true,args:['--use-angle=d3d11','--enable-webgl','--ignore-gpu-blocklist','--allow-file-access-from-files']});
+const page=await browser.newPage({viewport:{width:1600,height:1000},deviceScaleFactor:1});const errors=[],external=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});page.on('request',r=>{if(/^https?:/.test(r.url()))external.push(r.url());});
+await page.goto(pathToFileURL(path.join(root,'固定翼无人机结构实验室.html')).href+'?capture=1');await page.waitForFunction(()=>window.SIM?.ready,{timeout:60000});
+const shots=[];async function snap(name){await page.screenshot({path:path.join(out,name+'.png')});shots.push(name);}
+await page.evaluate(()=>window.fixedwing.setState({selected:'overview',explosion:0,cut:false,isolate:false,throttle:0}));const audit=await page.evaluate(()=>window.fixedwing.audit());console.log('AUDIT',JSON.stringify({...audit,topology:audit.topology.filter(x=>!x.ok)}));await snap('01-assembled');
+for(const view of ['top','front','side']){await page.evaluate(v=>window.fixedwing.view(v),view);await snap('02-'+view);}
+await page.evaluate(()=>{window.fixedwing.view('three');window.fixedwing.setState({selected:'overview',explosion:1,cut:false,isolate:false});});await snap('03-exploded');
+for(const [id,cut]of [['airframe',true],['wing',true],['motor',true],['avionics',false],['battery',false],['camera',false],['gear',false],['tail',false]]){await page.evaluate(([id,cut])=>window.fixedwing.setState({selected:id,cut,explosion:0}),[id,cut]);await snap('04-'+id);}
+await page.evaluate(()=>window.fixedwing.setState({selected:'overview',cut:false,isolate:false,explosion:0,roll:1,pitch:-1,yaw:1,flap:1}));await snap('05-control-extremes');
+await page.locator('#surfaces').click();await page.locator('#surface-roll').fill('-70');await page.locator('#surface-roll').dispatchEvent('input');await page.evaluate(()=>window.SIM.render(0));const controls=await page.evaluate(()=>window.fixedwing.getState());await snap('06-control-panel');await page.locator('#close-control').click();
+await page.locator('#embed').click();const embed=await page.locator('#embed-code').innerText();await page.locator('#close-modal').click();
+await page.evaluate(()=>window.fixedwing.setState({selected:'overview',cut:false,isolate:false,explosion:0,roll:0,pitch:0,yaw:0,flap:0}));await page.evaluate(()=>window.fixedwing.diagnostic('normals'));await snap('07-normals');await page.evaluate(()=>window.fixedwing.diagnostic('wireframe'));await snap('07-wireframe');await page.evaluate(()=>window.fixedwing.diagnostic('final'));
+const layout=[];for(const [w,h]of [[390,844],[768,1024],[1200,760]]){await page.setViewportSize({width:w,height:h});await page.evaluate(()=>{window.SIM.render(0);window.fixedwing.setState({selected:'overview',cut:false,isolate:false,explosion:0});});layout.push(await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,viewport:window.fixedwing.audit().viewport})));await snap('08-size-'+w);}
+await page.setViewportSize({width:1600,height:1000});for(const t of [0,5.4,10.4,16.4,22.4,28.4,34.4]){await page.evaluate(t=>window.fixedwing.seek(t),t);await snap('09-tour-'+t);}
+await page.evaluate(()=>window.fixedwing.setState({selected:'overview',cut:false,isolate:false,explosion:0}));console.log('EXPORT start');const bytes=await page.evaluate(()=>window.fixedwing.exportGLB(true));fs.writeFileSync(path.join(root,'固定翼无人机_无商标精细模型.glb'),Buffer.from(bytes,'base64'));console.log('EXPORT',bytes.length);
+const brandText=await page.evaluate(()=>({title:document.title,text:document.body.innerText}));
+const report={audit,errors,external,controls,layout,embed,exportBytes:bytes.length,brandScan:{matches:brandText.text.match(/ROTOR|SpeedyBee|STM32|Mugin|AAI|RQ-7|Volantex|商标标识/g)||[]},captureViews:shots};fs.writeFileSync(path.join(out,'validation.json'),JSON.stringify(report,null,2));
+const sheet=await browser.newPage({viewport:{width:1600,height:Math.ceil(shots.length/4)*270}});await sheet.setContent('<html><body style="margin:0;background:#e8ece8;font:12px Arial;display:grid;grid-template-columns:repeat(4,1fr);gap:6px">'+shots.map(name=>'<div><div style="padding:6px">'+name+'</div><img style="width:100%;display:block" src="data:image/png;base64,'+fs.readFileSync(path.join(out,name+'.png')).toString('base64')+'"></div>').join('')+'</body></html>');await sheet.screenshot({path:path.join(out,'contact-sheet.png'),fullPage:true});await browser.close();
+console.log('RESULT',JSON.stringify({errors,external,layout,topologyFailed:audit.topology.filter(x=>!x.ok).map(x=>x.name),exportBytes:bytes.length}));
+if(errors.length||external.length||audit.invalid||layout.some(x=>x.scroll>x.width)||audit.topology.some(x=>!x.ok))process.exitCode=1;

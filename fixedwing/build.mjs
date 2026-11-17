@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {execFileSync} from 'node:child_process';
+const kit='C:/Users/shangguan/.codex/skills/teardown',root=path.resolve(import.meta.dirname,'..');
+execFileSync(process.execPath,[`${kit}/sims/build.mjs`,import.meta.dirname],{cwd:root,stdio:'inherit'});
+const src=path.join(root,'teardown-out/dist/fixedwing.html');
+let html=fs.readFileSync(src,'utf8').replace('<html lang="en">','<html lang="zh-CN">').replace('<title>fixedwing</title>','<title>固定翼无人机 · 结构实验室</title>');
+html=html.replace('</head>','<meta name="description" content="写实固定翼无人机三维结构模型，部件拆解、内部剖视、舵面联动，可独立离线打开。"><!-- Three.js and teardown runtime: MIT. Source acknowledgements in fixedwing/使用说明.md. --></head>');
+fs.writeFileSync(src,html);fs.writeFileSync(path.join(root,'固定翼无人机结构实验室.html'),html);
+console.log(`Built offline HTML: ${(Buffer.byteLength(html)/1024).toFixed(0)} KB`);

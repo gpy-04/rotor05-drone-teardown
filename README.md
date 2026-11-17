@@ -2,6 +2,24 @@
 
 精细五寸四旋翼无人机的纯前端互动网页，可离线打开，也可通过 iframe 嵌入其他网站。无需后端、数据库或 CDN。
 
+## 固定翼无人机 · 写实无商标版本
+
+新增双尾撑、后置推进的固定翼无人机结构网页。模型翼展 2.4 m，机身、零件和界面没有商标、品牌丝印或品牌涂装。支持旋转缩放、分层拆解、内部剖视、独立部件特写、舵面与连杆联动、转速调节和 40 秒自动导览。
+
+![固定翼无人机整机](fixedwing/preview/01-assembled.png)
+
+- [固定翼主网页](固定翼无人机结构实验室.html)：约 882 KB，自包含 HTML，下载后使用 Chrome 或 Edge 离线打开。
+- [固定翼嵌入示例](固定翼无人机嵌入示例.html)：iframe 与父页面按钮控制。
+- [固定翼 GLB 模型](固定翼无人机_无商标精细模型.glb)：单位米，包含精细结构，可导入三维软件。
+- [固定翼完整 ZIP](固定翼无人机_网页与模型.zip)：网页、模型、源码、截图和说明。
+- [固定翼源码与操作说明](fixedwing/使用说明.md)。
+
+固定翼几何工具库自测 171/171 项通过；浏览器交互、真实 iframe、手机布局、模型尺寸与接地位置检查通过，未发生外部网络请求或浏览器脚本错误。记录见 [最终验证](fixedwing/preview/final-validation.json) 和 [渲染联系表](fixedwing/preview/contact-sheet.png)。
+
+制作采用 GitHub 上的 [程序化几何技能](https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills/tree/main/skills/threejs-procedural-geometry) 与 [claude-motion](https://github.com/whaleyxbt/claude-motion) 衍生的 teardown 框架。模型用于结构教学展示。
+
+## 四旋翼无人机
+
 ![无人机整机预览](preview/01-assembled.png)
 
 ## 打开与嵌入

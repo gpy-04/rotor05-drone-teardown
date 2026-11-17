@@ -1,0 +1,39 @@
+{
+  "checks": {
+    "motor-button": true,
+    "throttle-readout": true,
+    "control-slider": true,
+    "control-neutral": true,
+    "tour-start": true,
+    "tour-takeover": true,
+    "reset": true,
+    "cutaway": true,
+    "mobile-navigation": true,
+    "real-iframe-explode": true,
+    "real-iframe-part": true,
+    "GLB-header": true,
+    "span-contract": true,
+    "length-contract": true,
+    "wheel-ground-contract": true,
+    "GLB-no-brand-names": true,
+    "browser-errors": true
+  },
+  "errors": [],
+  "dimensions": {
+    "span": 2.4002695083618164,
+    "length": 2.1309650969028473,
+    "height": 0.8380349947813084,
+    "ground": -0.000035003125958610326,
+    "bytes": 29710964,
+    "nodes": 249,
+    "meshes": 129
+  },
+  "frameTimes": {
+    "median": 6.099999999999909,
+    "p95": 6.2000000000000455
+  },
+  "limitations": [
+    "CPU requestAnimationFrame timing is not measured GPU time",
+    "Educational geometry, not manufacturing CAD"
+  ]
+}
